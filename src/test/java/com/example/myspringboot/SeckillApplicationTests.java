@@ -32,7 +32,7 @@ class SeckillApplicationTests {
     private OrderService orderService;
     
     @Autowired
-    private InMemoryStorageService storageService;
+    private StorageService storageService;
     
     private String testGoodsId = "1001";
     private String testUserId = "test_user_123";
@@ -150,8 +150,7 @@ class SeckillApplicationTests {
             assertEquals(initialStock - 1, storageService.getStock(testGoodsId));
             
             // 恢复库存
-            boolean restoreSuccess = storageService.restoreStock(testGoodsId, 1);
-            assertTrue(restoreSuccess);
+            storageService.restoreStock(testGoodsId, 1);
             assertEquals(initialStock, storageService.getStock(testGoodsId));
         }
         
@@ -161,8 +160,7 @@ class SeckillApplicationTests {
             assertTrue(storageService.hasUserPurchased(testGoodsId, testUserId));
             
             // 移除已购买用户
-            boolean removeSoldUser = storageService.removeSoldUser(testGoodsId, testUserId);
-            assertTrue(removeSoldUser);
+            storageService.removeSoldUser(testGoodsId, testUserId);
             assertFalse(storageService.hasUserPurchased(testGoodsId, testUserId));
         }
     }
