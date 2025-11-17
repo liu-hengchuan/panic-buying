@@ -11,7 +11,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Service
-@Primary
 public class InMemoryStorageService implements StorageService {
     private Map<String, Goods> goodsMap = new ConcurrentHashMap<>();
     private Map<String, AtomicInteger> stockMap = new ConcurrentHashMap<>();
@@ -49,6 +48,13 @@ public class InMemoryStorageService implements StorageService {
         if (goods != null) {
             goods.setStatus(status);
         }
+    }
+
+    @Override
+    public void deleteGoods(String id) {
+        goodsMap.remove(id);
+        stockMap.remove(id);
+        soldUsersMap.remove(id);
     }
 
     @Override
