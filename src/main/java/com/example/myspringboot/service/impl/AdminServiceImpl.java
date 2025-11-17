@@ -3,7 +3,7 @@ package com.example.myspringboot.service.impl;
 import com.example.myspringboot.entity.Goods;
 import com.example.myspringboot.service.AdminService;
 import com.example.myspringboot.service.GoodsService;
-import com.example.myspringboot.service.InMemoryStorageService;
+import com.example.myspringboot.service.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +15,7 @@ import java.util.Map;
 public class AdminServiceImpl implements AdminService {
 
     @Autowired
-    private InMemoryStorageService storageService;
+    private StorageService storageService;
 
     @Autowired
     private GoodsService goodsService;

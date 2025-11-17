@@ -3,7 +3,8 @@ package com.example.myspringboot.service.impl;
 import com.example.myspringboot.entity.Goods;
 import com.example.myspringboot.entity.PageResult;
 import com.example.myspringboot.service.GoodsService;
-import com.example.myspringboot.service.InMemoryStorageService;
+
+import com.example.myspringboot.service.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,7 @@ import java.util.stream.Collectors;
 public class GoodsServiceImpl implements GoodsService {
 
     @Autowired
-    private InMemoryStorageService storageService;
+    private StorageService storageService;
 
     @Override
     public PageResult<Goods> getSeckillGoodsList(int page, int size, Integer status) {

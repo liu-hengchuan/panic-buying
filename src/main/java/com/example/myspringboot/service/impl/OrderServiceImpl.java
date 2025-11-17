@@ -3,7 +3,7 @@ package com.example.myspringboot.service.impl;
 import com.example.myspringboot.entity.Order;
 import com.example.myspringboot.entity.PageResult;
 import com.example.myspringboot.service.OrderService;
-import com.example.myspringboot.service.InMemoryStorageService;
+import com.example.myspringboot.service.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 public class OrderServiceImpl implements OrderService {
 
     @Autowired
-    private InMemoryStorageService storageService;
+    private StorageService storageService;
 
     @Override
     public Order getOrderDetail(String orderId) {
@@ -24,7 +24,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public PageResult<Order> getUserOrders(String userId, int page, int size, Integer status) {
-        List<Order> allOrders = storageService.getUserOrders(userId);
+        List<Order> allOrders = storageService.getOrdersByUserId(userId);
 
         // 过滤状态
         List<Order> filteredOrders = allOrders.stream()
@@ -49,15 +49,13 @@ public class OrderServiceImpl implements OrderService {
         }
 
         // 恢复库存
-        boolean stockRestored = storageService.restoreStock(order.getGoodsId(), order.getQuantity());
-        if (!stockRestored) {
-            return false;
-        }
+        storageService.restoreStock(order.getGoodsId(), order.getQuantity());
 
         // 移除已购买用户记录
         storageService.removeSoldUser(order.getGoodsId(), order.getUserId());
 
         // 更新订单状态为已取消
-        return storageService.updateOrderStatus(orderId, 3);
+        storageService.updateOrderStatus(orderId, 3);
+        return true;
     }
 }

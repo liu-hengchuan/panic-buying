@@ -1,0 +1,47 @@
+# Spring Boot Application Configuration
+spring:
+  application:
+    name: seckill-system
+  datasource:
+    driver-class-name: org.sqlite.JDBC
+    url: jdbc:sqlite:seckill.db
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    serialization:
+      write-dates-as-timestamps: false
+  mvc:
+    format:
+      date-time: yyyy-MM-dd HH:mm:ss
+  task:
+    execution:
+      pool:
+        core-size: 10
+        max-size: 100
+        queue-capacity: 500
+        keep-alive: 60s
+
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 200
+    min-spare-threads: 20
+
+logging:
+  level:
+    root: INFO
+    com.example.myspringboot: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n"
+
+# Seckill System Configuration
+seckill:
+  order:
+    timeout: 30
+  stock:
+    retry.count: 3
+  request:
+    limit: 1000
+  path:
+    expire.seconds: 60

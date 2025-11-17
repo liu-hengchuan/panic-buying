@@ -4,8 +4,9 @@ import com.example.myspringboot.entity.Goods;
 import com.example.myspringboot.entity.Order;
 import com.example.myspringboot.entity.SeckillResult;
 import com.example.myspringboot.service.GoodsService;
-import com.example.myspringboot.service.InMemoryStorageService;
+
 import com.example.myspringboot.service.SeckillService;
+import com.example.myspringboot.service.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,7 @@ import java.util.UUID;
 public class SeckillServiceImpl implements SeckillService {
 
     @Autowired
-    private InMemoryStorageService storageService;
+    private StorageService storageService;
 
     @Autowired
     private GoodsService goodsService;
