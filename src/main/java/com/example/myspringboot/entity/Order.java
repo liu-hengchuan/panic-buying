@@ -1,11 +1,13 @@
 package com.example.myspringboot.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
 @Data
+@TableName(value = "`order`")
 public class Order {
     private String orderId;
     private String userId;

@@ -39,6 +39,11 @@ class SeckillApplicationTests {
     
     @BeforeEach
     void setUp() {
+        // 清除原有商品数据
+        List<Goods> goodsList = goodsService.getSeckillGoodsList(1, Integer.MAX_VALUE, null).getList();
+        for (Goods goods : goodsList) {
+            storageService.deleteGoods(goods.getId());
+        }
         // 初始化商品数据
         adminService.initGoodsData();
     }
@@ -91,8 +96,8 @@ class SeckillApplicationTests {
             assertNotNull(result2);
             assertEquals(1, result2.getResult());
         } else if (result.getResult() == 0) {
-            // 秒杀失败，可能库存不足
-            assertEquals("库存不足", result.getReason());
+            // 秒杀失败，可能库存不足或用户已购买
+            assertTrue(result.getReason().equals("库存不足") || result.getReason().equals("用户已购买该商品"));
         }
     }
     

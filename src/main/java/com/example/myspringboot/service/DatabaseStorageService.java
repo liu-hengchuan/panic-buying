@@ -95,6 +95,12 @@ public class DatabaseStorageService implements StorageService {
     }
 
     @Override
+    public void deleteGoods(String id) {
+        String sql = "DELETE FROM goods WHERE id = ?";
+        jdbcTemplate.update(sql, id);
+    }
+
+    @Override
     public int getStock(String id) {
         String sql = "SELECT available_stock FROM goods WHERE id = ?";
         return jdbcTemplate.queryForObject(sql, Integer.class, id);

@@ -12,6 +12,7 @@ public interface StorageService {
     Goods getGoods(String id);
     List<Goods> getAllGoods();
     void updateGoodsStatus(String id, int status);
+    void deleteGoods(String id);
 
     // ------------------- 库存相关方法 -------------------
     int getStock(String id);
