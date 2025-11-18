@@ -133,3 +133,24 @@ Consider marking one of the beans as @Primary, updating the consumer to accept m
 2025-11-17 10:48:40.867 [main] INFO  com.example.myspringboot.SeckillApplicationTests - Started SeckillApplicationTests in 4.598 seconds (JVM running for 9.515)
 2025-11-17 10:48:43.616 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2025-11-17 10:48:43.621 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-11-18 11:04:29.313 [main] INFO  com.example.myspringboot.MySpringBootApplication - Starting MySpringBootApplication v0.0.1-SNAPSHOT using Java 1.8.0_331 on WIN-CS75U3R71FV with PID 21196 (C:\Users\Administrator\Documents\trae_projects\obd2\panic-buying\target\myspringboot-0.0.1-SNAPSHOT.jar started by Administrator in C:\Users\Administrator\Documents\trae_projects\obd2\panic-buying)
+2025-11-18 11:04:29.315 [main] DEBUG com.example.myspringboot.MySpringBootApplication - Running with Spring Boot v2.7.18, Spring v5.3.31
+2025-11-18 11:04:29.316 [main] INFO  com.example.myspringboot.MySpringBootApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-18 11:04:30.405 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-11-18 11:04:30.413 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-18 11:04:30.413 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.83]
+2025-11-18 11:04:30.500 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-11-18 11:04:30.500 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1142 ms
+2025-11-18 11:04:30.848 [main] WARN  c.b.mybatisplus.core.injector.DefaultSqlInjector - class com.example.myspringboot.entity.Order ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
+2025-11-18 11:04:31.672 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-18 11:04:31.793 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-11-18 11:04:31.818 [main] INFO  c.e.myspringboot.netty.ObdDatabaseInitializer - 创建alarm_report表成功
+2025-11-18 11:04:31.823 [main] INFO  c.e.myspringboot.netty.ObdDatabaseInitializer - 创建command_result表成功
+2025-11-18 11:04:31.828 [main] INFO  c.e.myspringboot.netty.ObdDatabaseInitializer - 创建vehicle_start_alarm表成功
+2025-11-18 11:04:31.832 [main] INFO  c.e.myspringboot.netty.ObdDatabaseInitializer - 创建vehicle_stop_alarm表成功
+2025-11-18 11:04:31.838 [main] INFO  c.e.myspringboot.netty.ObdDatabaseInitializer - 创建gps_report表成功
+2025-11-18 11:04:32.720 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-11-18 11:04:32.736 [main] INFO  com.example.myspringboot.MySpringBootApplication - Started MySpringBootApplication in 3.765 seconds (JVM running for 4.086)
+2025-11-18 11:04:36.142 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-18 11:04:36.143 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-11-18 11:04:36.145 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
